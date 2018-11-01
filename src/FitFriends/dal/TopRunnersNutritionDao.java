@@ -1,4 +1,4 @@
-// FitFriends. October 31, 2018.
+// FitFriends.  October 31, 2018.
 
 package FitFriends.dal;
 
