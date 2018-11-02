@@ -19,7 +19,7 @@
 		</p>
 		<p>
 			<label for="nutritionid">NutritionId</label>
-			<input id="nutritionid" name="nutritionid" value="">
+			<input id="nutritionid" name="nutritionid" value="${fn:escapeXml(param.nutritionid)}">
 		</p>
 		<p>
 			<label for="numberservings">Number of Servings</label>

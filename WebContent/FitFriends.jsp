@@ -28,7 +28,10 @@
 		<div id="usersHome"><a href="usershome">User Home Page</a></div>
 	<br/>
 	<br/>
-		<div id="nutritionplanhome"><a href="nutritionplanhome">Nutrition Home Page</a></div>
+		<div id="nutritionhome"><a href="nutritionhome">Nutrition Home Page</a></div>
+	<br/>
+	<br/>
+		<div id="nutritionplanhome"><a href="nutritionplanhome">User Nutrition Plan</a></div>
 	<br/>
 	<br/>
 		<div id="runProgress"><a href="runprogress">TBD - Run Progress Home Page</a></div>
