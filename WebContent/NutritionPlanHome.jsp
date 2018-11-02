@@ -32,7 +32,8 @@
 		</p>
 	</form>
 	<br/>
-		<div id="addnutrition"><a href="addnutrition?username=/>">Add Nutrition Item</a></div>
+		<div id="addnutrition"><a href="nutritionplanadd?username=<c:out value="${fn:escapeXml(param.username)}"/>">Add Nutrition Item</a></div>
+								
 	<br/>
 	
 	<h1>Nutrition Plan Details</h1>

@@ -239,7 +239,7 @@ public class NutritionPlanDao {
 		return nutritionPlan;
 	}
 	
-	// Update the Portion quantity for a user food item
+	// Update the number of servings for a user food item
 	public NutritionPlan updateNumberServings(NutritionPlan nutritionPlan, int newNumberServings) throws SQLException {
 		String updateServings = "UPDATE UserNutrition SET NumberServings=? WHERE NutritionID=? and MemberId=?;";
 		Connection connection = null;
@@ -273,5 +273,33 @@ public class NutritionPlanDao {
 		}
 	}
 
+	public NutritionPlan addItemToNutritionPlan(NutritionPlan nutritionPlan) throws SQLException {
+		String addNutritionItem = "INSERT INTO UserNutrition (MemberId, NutritionId, NumberServings) Values (?,?,?);";
+		Connection connection = null;
+		PreparedStatement updateStmt = null;
+		try {
+			connection = connectionManager.getConnection();
+			updateStmt = connection.prepareStatement(addNutritionItem);
+			updateStmt.setInt(1, nutritionPlan.getMemberId());
+			updateStmt.setInt(2, nutritionPlan.getNutritionId());
+			updateStmt.setInt(3, nutritionPlan.getNumberServings());
+			updateStmt.executeUpdate();
+			
+			// Update the instance before returning to the caller.
+			nutritionPlan = this.getNutritionPlanByUserAndNutrition(nutritionPlan.getUserName(), nutritionPlan.getNutritionId());
+
+			return nutritionPlan;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw e;
+		} finally {
+			if(connection != null) {
+				connection.close();
+			}
+			if(updateStmt != null) {
+				updateStmt.close();
+			}
+		}
+	}
 
 }

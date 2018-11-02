@@ -104,6 +104,14 @@ public class NutritionPlan {
 		this.saturatedFats = saturatedFats;
 	}
 
+	// constructor with fewer attributes
+	public NutritionPlan(int memberId, int nutritionId,	int numberServings,	String userName) {
+		this.memberId = memberId;
+		this.nutritionId = nutritionId;
+		this.numberServings = numberServings;
+		this.userName = userName;
+	}
+
 	public int getMemberId() {
 		return memberId;
 	}
