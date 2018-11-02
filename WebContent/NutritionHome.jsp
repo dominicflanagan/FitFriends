@@ -21,6 +21,12 @@
 		</div>
 		<p>
 			<div <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>
+				<label for="username">UserName</label>
+				<input id="username" name="username" value="${fn:escapeXml(param.username)}">
+			</div>
+		</p>
+		<p>
+			<div <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>
 				<label for="foodtype">Food Type</label>
 				<input id="foodtype" name="foodtype" value="${fn:escapeXml(param.foodtype)}">
 			</div>
@@ -31,11 +37,6 @@
 			</span>
 		</p>
 	</form>
-	<br/>
-		<div id="nutritionhome"><a href="nutritionhome?foodtype=<c:out value="${fn:escapeXml(param.foodtype)}"/>">Get Nutrition Items</a></div>
-								
-	<br/>
-	
 	<h1>Nutrition Items</h1>
         <table class="table table-striped">
             <tr>

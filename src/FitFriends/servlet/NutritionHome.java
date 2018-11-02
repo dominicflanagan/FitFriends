@@ -55,7 +55,7 @@ public class NutritionHome extends HttpServlet {
             messages.put("title", "Invalid Food Type");
             messages.put("disableSubmit", "true");
         } else {
-        	// get the user's nutrition plan.
+        	// get the nutrition items
         	try {
 	        	nutritions = nutritionDao.getNutritionItemsByFoodType(foodType);
 	        } catch (SQLException e) {
@@ -67,7 +67,7 @@ public class NutritionHome extends HttpServlet {
         	// in the input box when rendering NutritionHome.jsp.
         	messages.put("previousFoodType", foodType);
         }
-        req.setAttribute("nutritions", nutritions);       
+        req.setAttribute("nutritions", nutritions);  
         req.getRequestDispatcher("/NutritionHome.jsp").forward(req, resp);
     }
 }
