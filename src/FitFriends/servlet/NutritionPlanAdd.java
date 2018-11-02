@@ -72,7 +72,7 @@ public class NutritionPlanAdd extends HttpServlet {
  	        try {
  	        	NutritionPlan nutritionItem = new NutritionPlan(memberId, nutritionId, numberServings, userName);
  	        	nutritionItem = nutritionPlanDao.addItemToNutritionPlan(nutritionItem);
-	        	messages.put("success", "Successfully created " + userName);
+	        	messages.put("success", "Successfully added a food item for " + userName);
 	        } catch (SQLException e) {
 				e.printStackTrace();
 				throw new IOException(e);
