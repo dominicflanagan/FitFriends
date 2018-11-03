@@ -12,7 +12,7 @@
 </head>
 <body>
 	<h1>${messages.title}</h1>
-	<form action="changeservings" method="post">
+	<form action="nutritionplanupdate" method="post">
 		<p>
 			<div <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>
 				<label for="username">UserName</label>

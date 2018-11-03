@@ -48,7 +48,7 @@
                 <th style="text-align:right">Saturated Fats</th>
                 <th style="text-align:right">Added Sugars</th>
                 <th style="text-align:right">Calories</th>
-                <th>Change Number Servings</th>
+                <th>Update Nutrition Plan Item</th>
                 <th>Delete Nutrition Plan Item</th>
             </tr>
             <c:forEach items="${nutritionplans}" var="nutrition" >
@@ -63,7 +63,7 @@
                     <td align="right"><fmt:formatNumber type = "number" pattern = "0.00" value = "${nutrition.getSaturatedFats()}" /></td>
                     <td align="right"><fmt:formatNumber type = "number" pattern = "0.00" value = "${nutrition.getAddedSugars()}" /></td>
                     <td align="right"><fmt:formatNumber type = "number" pattern = "0.00" value = "${nutrition.getCalories()}" /></td>
-                    <td><a href="changeservings?username=<c:out value="${nutrition.getUserName()}"/>&nutritionid=<c:out value="${nutrition.getNutritionId()}"/>">Change Servings</a></td>                
+                    <td><a href="nutritionplanupdate?username=<c:out value="${nutrition.getUserName()}"/>&nutritionid=<c:out value="${nutrition.getNutritionId()}"/>">Update</a></td>                
                    <td><a href="nutritionplandelete?memberid=<c:out value="${nutrition.getMemberId()}"/>&nutritionid=<c:out value="${nutrition.getNutritionId()}"/>">Delete</a></td>
                   </tr>
             </c:forEach>

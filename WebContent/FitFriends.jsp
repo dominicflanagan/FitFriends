@@ -34,10 +34,10 @@
 		<div id="nutritionplanhome"><a href="nutritionplanhome">User Nutrition Plan</a></div>
 	<br/>
 	<br/>
-		<div id="runProgress"><a href="runprogress">TBD - Run Progress Home Page</a></div>
+		<div id="runtimeprogresshome"><a href="runtimeprogresshome">Run Progress Home Page</a></div>
 	<br/>
 	<br/>
-		<div id="liftProgress"><a href="liftprogress">TBD - Lift Progress Page</a></div>
+		<div id="liftprogresshome"><a href="liftprogresshome">TBD - Lift Progress Home Page</a></div>
 	<br/>
 	<br/>
 		<div id="userNutrition"><a href="usernutrition">TBD - User Nutrition Page</a></div>

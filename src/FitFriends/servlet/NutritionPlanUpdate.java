@@ -20,8 +20,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/changeservings")
-public class ChangeServings extends HttpServlet {
+@WebServlet("/nutritionplanupdate")
+public class NutritionPlanUpdate extends HttpServlet {
 	
 	protected NutritionPlanDao nutritionPlanDao;
 	
@@ -37,8 +37,8 @@ public class ChangeServings extends HttpServlet {
         Map<String, String> messages = new HashMap<String, String>();
         req.setAttribute("messages", messages);
         // Provide a title and render the JSP.
-        messages.put("title", "Change Servings");        
-        req.getRequestDispatcher("/ChangeServings.jsp").forward(req, resp);
+        messages.put("title", "Nutrition Plan Update");        
+        req.getRequestDispatcher("/NutritionPlanUpdate.jsp").forward(req, resp);
 	}
 	
 	@Override
@@ -76,6 +76,6 @@ public class ChangeServings extends HttpServlet {
 	        }
         }
         
-        req.getRequestDispatcher("/ChangeServings.jsp").forward(req, resp);
+        req.getRequestDispatcher("/NutritionPlanUpdate.jsp").forward(req, resp);
     }
 }
