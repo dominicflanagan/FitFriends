@@ -13,25 +13,25 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class TopRunnersNutritionDao {
+public class TopRunnersDao {
 	protected ConnectionManager connectionManager;
 	
 	// Single pattern: instantiation is limited to one object.
-	private static TopRunnersNutritionDao instance = null;
-	protected TopRunnersNutritionDao() {
+	private static TopRunnersDao instance = null;
+	protected TopRunnersDao() {
 		connectionManager = new ConnectionManager();
 	}
-	public static TopRunnersNutritionDao getInstance() {
+	public static TopRunnersDao getInstance() {
 		if(instance == null) {
-			instance = new TopRunnersNutritionDao();
+			instance = new TopRunnersDao();
 		}
 		return instance;
 	}
 
 	
-	// Get the matching Persons records by fetching from your MySQL instance list of Persons by LastName
-	public List<TopRunnersNutrition> getTopRunnersNutrition(int event, int topN) throws SQLException {
-		List<TopRunnersNutrition> topRunnersNutritions = new ArrayList<TopRunnersNutrition>();
+	// Get the matching Runners records by fetching from your MySQL instance list of Persons by LastName
+	public List<TopRunners> getTopRunners(int event, int topN) throws SQLException {
+		List<TopRunners> topRunners = new ArrayList<TopRunners>();
 		String selectRunners =
 			"	SELECT P.MemberId, P.UserName, P.FirstName, P.LastName, " + 
 			"			SEC_TO_TIME(RP.RunTimeSeconds) AS RunTime, " + 
@@ -68,9 +68,9 @@ public class TopRunnersNutritionDao {
 				double sugars = results.getDouble("Sugars");
 				double totalCalories = results.getDouble("TotalCalories");
 
-				TopRunnersNutrition topRunnersNutrition = new TopRunnersNutrition(memberId, userName, firstName, lastName, 
+				TopRunners topRunner = new TopRunners(memberId, userName, firstName, lastName, 
 						runTime, solidFats, satFats, sugars, totalCalories);
-				topRunnersNutritions.add(topRunnersNutrition);
+				topRunners.add(topRunner);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -86,7 +86,7 @@ public class TopRunnersNutritionDao {
 				results.close();
 			}
 		}
-		return topRunnersNutritions;
+		return topRunners;
 	}
 
 }

@@ -2,10 +2,9 @@
 
 package FitFriends.model;
 
-import java.sql.Timestamp;
 import java.util.Date;
 
-public class TopRunnersNutrition {
+public class TopRunners {
 	protected int memberId;
 	protected String userName;
 	protected String firstName;
@@ -17,7 +16,7 @@ public class TopRunnersNutrition {
 	protected double totalCalories;
 	
 	// constructor with all attributes
-	public TopRunnersNutrition(int memberId, String userName, String firstName, String lastName, Date runTime, double solidFats, double satFats, double sugars, double totalCalories) {
+	public TopRunners(int memberId, String userName, String firstName, String lastName, Date runTime, double solidFats, double satFats, double sugars, double totalCalories) {
 		this.memberId = memberId;
 		this.userName = userName;
 		this.firstName = firstName;

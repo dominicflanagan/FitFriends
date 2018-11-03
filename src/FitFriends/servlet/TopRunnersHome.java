@@ -23,11 +23,11 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/toprunnershome")
 public class TopRunnersHome extends HttpServlet {
 	
-	protected TopRunnersNutritionDao topRunnersNutritionDao;
+	protected TopRunnersDao topRunnersDao;
 	
 	@Override
 	public void init() throws ServletException {
-		topRunnersNutritionDao = TopRunnersNutritionDao.getInstance();
+		topRunnersDao = TopRunnersDao.getInstance();
 	}
 	
 @Override
@@ -37,7 +37,7 @@ public class TopRunnersHome extends HttpServlet {
         Map<String, String> messages = new HashMap<String, String>();
         req.setAttribute("messages", messages);
 
-        List<TopRunnersNutrition> topRunners = new ArrayList<TopRunnersNutrition>();
+        List<TopRunners> topRunners = new ArrayList<TopRunners>();
         
         // Retrieve and validate the parameters retrieved from the URL query string.
         String stringEvent = req.getParameter("event");
@@ -49,7 +49,7 @@ public class TopRunnersHome extends HttpServlet {
         	int topN = Integer.parseInt(stringTopN);
         	// Retrieve data, and store as a message.
         	try {
-        		topRunners = topRunnersNutritionDao.getTopRunnersNutrition(event, topN);
+        		topRunners = topRunnersDao.getTopRunners(event, topN);
             } catch (SQLException e) {
     			e.printStackTrace();
     			throw new IOException(e);
@@ -73,7 +73,7 @@ public void doPost(HttpServletRequest req, HttpServletResponse resp)
     Map<String, String> messages = new HashMap<String, String>();
     req.setAttribute("messages", messages);
 
-    List<TopRunnersNutrition> topRunners = new ArrayList<TopRunnersNutrition>();
+    List<TopRunners> topRunners = new ArrayList<TopRunners>();
     
     // Retrieve and validate the parameters retrieved from the URL query string.
     String stringEvent = req.getParameter("event");
@@ -85,7 +85,7 @@ public void doPost(HttpServletRequest req, HttpServletResponse resp)
     	int topN = Integer.parseInt(stringTopN);
     	// Retrieve data, and store as a message.
     	try {
-    		topRunners = topRunnersNutritionDao.getTopRunnersNutrition(event, topN);
+    		topRunners = topRunnersDao.getTopRunners(event, topN);
         } catch (SQLException e) {
 			e.printStackTrace();
 			throw new IOException(e);

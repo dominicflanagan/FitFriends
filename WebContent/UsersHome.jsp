@@ -34,26 +34,28 @@
 	<h1>Matching Users</h1>
         <table class="table table-striped">
             <tr>
-                <th>MemberId</th>
                 <th>UserName</th>
                 <th>FirstName</th>
                 <th>LastName</th>
                 <th>Email</th>
-                <th>Password</th>
                 <th style="text-align:right">Date of Birth</th>
                 <th>Fitness Level</th>
+                <th>Nutrition Plan</th>
+                <th>Run Progress</th>
+                <th>Lift Progress</th>
                 <th>Delete User</th>
             </tr>
             <c:forEach items="${users}" var="user" >
    		    	<tr>
-                    <td><c:out value="${user.getMemberId()}" /></td>
                     <td><c:out value="${user.getUserName()}" /></td>
                     <td><c:out value="${user.getFirstName()}" /></td>
                     <td><c:out value="${user.getLastName()}" /></td>
                     <td><c:out value="${user.getEmail()}" /></td>
-                    <td><c:out value="${user.getPsw()}" /></td>
                     <td style="text-align:right"><fmt:formatDate value="${user.getDob()}" pattern="MM/dd/YYYY" /></td>
                     <td><c:out value="${user.getFitnessLevel()}" /></td>
+                    <td><a href="nutritionplanhome?username=<c:out value="${user.getUserName()}"/>">Nutrition Plan</a></td>
+                    <td><a href="runprogresshome?username=<c:out value="${user.getUserName()}"/>">Run Progress</a></td>
+                    <td><a href="liftprogresshome?username=<c:out value="${user.getUserName()}"/>">Lift Progress</a></td>
                     <td><a href="userdelete?username=<c:out value="${user.getUserName()}"/>">Delete</a></td>
                  </tr>
             </c:forEach>
