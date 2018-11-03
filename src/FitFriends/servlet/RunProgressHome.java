@@ -20,14 +20,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/runtimeprogresshome")
-public class RunTimeProgressHome extends HttpServlet {
+@WebServlet("/runprogresshome")
+public class RunProgressHome extends HttpServlet {
 	
-	protected RunTimeProgressDao runTimeProgressDao;
+	protected RunProgressDao runProgressDao;
 	
 	@Override
 	public void init() throws ServletException {
-		runTimeProgressDao = RunTimeProgressDao.getInstance();
+		runProgressDao = RunProgressDao.getInstance();
 	}
 	
 @Override
@@ -37,7 +37,7 @@ public class RunTimeProgressHome extends HttpServlet {
         Map<String, String> messages = new HashMap<String, String>();
         req.setAttribute("messages", messages);
 
-        List<RunTimeProgress> runTimeProgress = new ArrayList<RunTimeProgress>();
+        List<RunProgress> runProgress = new ArrayList<RunProgress>();
         
         // Retrieve and validate the parameters retrieved from the URL query string.
         String userName = req.getParameter("username");
@@ -47,7 +47,7 @@ public class RunTimeProgressHome extends HttpServlet {
         	
         	// Retrieve data, and store as a message.
         	try {
-        		runTimeProgress = runTimeProgressDao.getRunTimeProgressByUserName(userName);
+        		runProgress = runProgressDao.getRunProgressByUserName(userName);
             } catch (SQLException e) {
     			e.printStackTrace();
     			throw new IOException(e);
@@ -58,9 +58,9 @@ public class RunTimeProgressHome extends HttpServlet {
         	messages.put("previousMemberId", userName);
          }
  
-        req.setAttribute("runtimeprogress", runTimeProgress);
+        req.setAttribute("runtimeprogress", runProgress);
         
-        req.getRequestDispatcher("/RunTimeProgressHome.jsp").forward(req, resp);
+        req.getRequestDispatcher("/RunProgressHome.jsp").forward(req, resp);
 	}
 
 
@@ -71,7 +71,7 @@ public void doPost(HttpServletRequest req, HttpServletResponse resp)
     Map<String, String> messages = new HashMap<String, String>();
     req.setAttribute("messages", messages);
 
-    List<RunTimeProgress> runTimeProgress = new ArrayList<RunTimeProgress>();
+    List<RunProgress> runProgress = new ArrayList<RunProgress>();
     
     // Retrieve and validate the parameters retrieved from the URL query string.
     String userName = req.getParameter("username");
@@ -81,7 +81,7 @@ public void doPost(HttpServletRequest req, HttpServletResponse resp)
    	
     	// Retrieve data, and store as a message.
     	try {
-    		runTimeProgress = runTimeProgressDao.getRunTimeProgressByUserName(userName);
+    		runProgress = runProgressDao.getRunProgressByUserName(userName);
         } catch (SQLException e) {
 			e.printStackTrace();
 			throw new IOException(e);
@@ -92,9 +92,9 @@ public void doPost(HttpServletRequest req, HttpServletResponse resp)
     	messages.put("previousUserName", userName);
      }
 
-    req.setAttribute("runtimeprogress", runTimeProgress);
+    req.setAttribute("runtimeprogress", runProgress);
     
-    req.getRequestDispatcher("/RunTimeProgressHome.jsp").forward(req, resp);
+    req.getRequestDispatcher("/RunProgressHome.jsp").forward(req, resp);
 }
 }
 

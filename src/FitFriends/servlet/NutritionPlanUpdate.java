@@ -8,7 +8,6 @@ import FitFriends.model.*;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -30,16 +29,36 @@ public class NutritionPlanUpdate extends HttpServlet {
 		nutritionPlanDao = NutritionPlanDao.getInstance();
 	}
 	
+
 	@Override
-	public void doGet(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
-		// Map for storing messages.
+    public void doGet(HttpServletRequest req, HttpServletResponse resp)
+    		throws ServletException, IOException {
+        // Map for storing messages.
         Map<String, String> messages = new HashMap<String, String>();
         req.setAttribute("messages", messages);
-        // Provide a title and render the JSP.
-        messages.put("title", "Nutrition Plan Update");        
+
+        // Retrieve and validate user name
+        String userName = req.getParameter("username");
+        int nutritionId = Integer.parseInt(req.getParameter("nutritionid"));
+        List<NutritionPlan> nutritionPlans = new ArrayList<NutritionPlan>();
+        NutritionPlan nutritionPlan = null;
+        
+        if (userName == null || userName.trim().isEmpty()) {
+            messages.put("title", "Invalid UserName");
+            messages.put("disableSubmit", "true");
+        } else {
+        	messages.put("title", "Nutrition Plan Update for " + userName);
+	        try {
+	        	nutritionPlan = nutritionPlanDao.getNutritionPlanByUserAndNutrition(userName, nutritionId);
+	        	nutritionPlans.add(nutritionPlan);
+	        } catch (SQLException e) {
+				e.printStackTrace();
+				throw new IOException(e);
+	        }
+        }
+        req.setAttribute("nutritionplans", nutritionPlans);   
         req.getRequestDispatcher("/NutritionPlanUpdate.jsp").forward(req, resp);
-	}
+    }
 	
 	@Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp)
@@ -52,16 +71,19 @@ public class NutritionPlanUpdate extends HttpServlet {
         String userName = req.getParameter("username");
         int nutritionId = Integer.parseInt(req.getParameter("nutritionid"));
         int newNumberServings = Integer.parseInt(req.getParameter("newnumberservings"));
+        List<NutritionPlan> nutritionPlans = new ArrayList<NutritionPlan>();
+        NutritionPlan nutritionPlan = null;
+        
         if (userName == null || userName.trim().isEmpty()) {
             messages.put("title", "Invalid UserName");
             messages.put("disableSubmit", "true");
         } else {
         	// update servings
-        	NutritionPlan nutritionPlan;
+        	
 	        try {
 	        	nutritionPlan = nutritionPlanDao.getNutritionPlanByUserAndNutrition(userName, nutritionId);
 	        	nutritionPlan = nutritionPlanDao.updateNumberServings(nutritionPlan, newNumberServings );
-	        	req.setAttribute("nutritionplan", nutritionPlan);
+	        	nutritionPlans.add(nutritionPlan);
 	        	// Update the message.
 		        if (nutritionPlan != null) {
 		            messages.put("title", "Updated plan for " + userName);
@@ -75,7 +97,7 @@ public class NutritionPlanUpdate extends HttpServlet {
 				throw new IOException(e);
 	        }
         }
-        
+        req.setAttribute("nutritionplans", nutritionPlans);   
         req.getRequestDispatcher("/NutritionPlanUpdate.jsp").forward(req, resp);
     }
 }

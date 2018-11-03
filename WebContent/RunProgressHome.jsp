@@ -10,13 +10,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <!-- Bootstrap -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
-<title>Run Time Progress</title>
+<title>Run Progress</title>
 </head>
 <body>
 	<div class ="container theme-showcase" role="main">
-	<form action="runtimeprogresshome" method="post">
+	<form action="runprogresshome" method="post">
 	<div class="jumbotron">
-		<h1>Run Time Progress Home Page</h1>
+		<h1>Run Progress</h1>
 		</div>
 		<p>
 			<label for="username">UserName</label>

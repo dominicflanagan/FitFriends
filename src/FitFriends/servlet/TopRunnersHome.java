@@ -20,8 +20,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/toprunnersnutritionhome")
-public class TopRunnersNutritionHome extends HttpServlet {
+@WebServlet("/toprunnershome")
+public class TopRunnersHome extends HttpServlet {
 	
 	protected TopRunnersNutritionDao topRunnersNutritionDao;
 	
@@ -37,7 +37,7 @@ public class TopRunnersNutritionHome extends HttpServlet {
         Map<String, String> messages = new HashMap<String, String>();
         req.setAttribute("messages", messages);
 
-        List<TopRunnersNutrition> topRunnersNutritions = new ArrayList<TopRunnersNutrition>();
+        List<TopRunnersNutrition> topRunners = new ArrayList<TopRunnersNutrition>();
         
         // Retrieve and validate the parameters retrieved from the URL query string.
         String stringEvent = req.getParameter("event");
@@ -49,7 +49,7 @@ public class TopRunnersNutritionHome extends HttpServlet {
         	int topN = Integer.parseInt(stringTopN);
         	// Retrieve data, and store as a message.
         	try {
-        		topRunnersNutritions = topRunnersNutritionDao.getTopRunnersNutrition(event, topN);
+        		topRunners = topRunnersNutritionDao.getTopRunnersNutrition(event, topN);
             } catch (SQLException e) {
     			e.printStackTrace();
     			throw new IOException(e);
@@ -61,9 +61,9 @@ public class TopRunnersNutritionHome extends HttpServlet {
         	messages.put("previousTopN", stringTopN);
         }
  
-        req.setAttribute("toprunnersnutritions", topRunnersNutritions);
+        req.setAttribute("toprunners", topRunners);
         
-        req.getRequestDispatcher("/TopRunnersNutritionHome.jsp").forward(req, resp);
+        req.getRequestDispatcher("/TopRunnersHome.jsp").forward(req, resp);
 	}
 
 @Override
@@ -73,7 +73,7 @@ public void doPost(HttpServletRequest req, HttpServletResponse resp)
     Map<String, String> messages = new HashMap<String, String>();
     req.setAttribute("messages", messages);
 
-    List<TopRunnersNutrition> topRunnersNutritions = new ArrayList<TopRunnersNutrition>();
+    List<TopRunnersNutrition> topRunners = new ArrayList<TopRunnersNutrition>();
     
     // Retrieve and validate the parameters retrieved from the URL query string.
     String stringEvent = req.getParameter("event");
@@ -85,16 +85,16 @@ public void doPost(HttpServletRequest req, HttpServletResponse resp)
     	int topN = Integer.parseInt(stringTopN);
     	// Retrieve data, and store as a message.
     	try {
-    		topRunnersNutritions = topRunnersNutritionDao.getTopRunnersNutrition(event, topN);
+    		topRunners = topRunnersNutritionDao.getTopRunnersNutrition(event, topN);
         } catch (SQLException e) {
 			e.printStackTrace();
 			throw new IOException(e);
         }
     	messages.put("success", "Displaying results for the top " + topN + " runners in the " + event + " event");
     }
-    req.setAttribute("toprunnersnutritions", topRunnersNutritions);
+    req.setAttribute("toprunners", topRunners);
     
-    req.getRequestDispatcher("/TopRunnersNutritionHome.jsp").forward(req, resp);
+    req.getRequestDispatcher("/TopRunnersHome.jsp").forward(req, resp);
 }
 }
 

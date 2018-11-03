@@ -36,8 +36,30 @@ public class NutritionPlanHome extends HttpServlet {
 		// Map for storing messages.
         Map<String, String> messages = new HashMap<String, String>();
         req.setAttribute("messages", messages);
+
+        List<NutritionPlan> nutritionPlans = new ArrayList<NutritionPlan>();
         
-        req.getRequestDispatcher("/NutritionPlanHome.jsp").forward(req, resp);
+        // Retrieve and validate the parameters retrieved from the URL query string.
+        String userName = req.getParameter("username");
+         if (userName == null || userName.trim().isEmpty() ) {
+            messages.put("success", "Please enter  a valid UserName.");
+        } else {
+        	
+        	// Retrieve data, and store as a message.
+        	try {
+        		nutritionPlans = nutritionPlanDao.getNutritionPlanForUser(userName);
+            } catch (SQLException e) {
+    			e.printStackTrace();
+    			throw new IOException(e);
+            }
+        	messages.put("success", "Displaying results for " + userName);
+        	// Save the previous search term, so it can be used as the default
+        	// in the input box when rendering PersonsHome.jsp.
+        	messages.put("previousMemberId", userName);
+         }
+ 
+         req.setAttribute("nutritionplans", nutritionPlans);       
+         req.getRequestDispatcher("/NutritionPlanHome.jsp").forward(req, resp);
 	}
 	
 	@Override

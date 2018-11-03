@@ -19,28 +19,25 @@
 		<h1>Welcome to FitFriends!</h1>
 	</div>
 	<br/>
-		<div id="toprunnersnutritionhome"><a href="toprunnersnutritionhome">Top Runners Nutrition Home Page</a></div>
+		<div id="toprunnershome"><a href="toprunnershome">Top Runners</a></div>
 	<br/>
 	<br/>
-		<div id="personsHome"><a href="personshome">Person Home Page</a></div>
+		<div id="personsHome"><a href="personshome">Persons</a></div>
 	<br/>
 	<br/>
-		<div id="usersHome"><a href="usershome">User Home Page</a></div>
+		<div id="usersHome"><a href="usershome">Users</a></div>
 	<br/>
 	<br/>
-		<div id="nutritionhome"><a href="nutritionhome">Nutrition Home Page</a></div>
+		<div id="nutritionhome"><a href="nutritionhome">Nutrition</a></div>
 	<br/>
 	<br/>
 		<div id="nutritionplanhome"><a href="nutritionplanhome">User Nutrition Plan</a></div>
 	<br/>
 	<br/>
-		<div id="runtimeprogresshome"><a href="runtimeprogresshome">Run Progress Home Page</a></div>
+		<div id="runprogresshome"><a href="runprogresshome">Run Progress</a></div>
 	<br/>
 	<br/>
-		<div id="liftprogresshome"><a href="liftprogresshome">TBD - Lift Progress Home Page</a></div>
-	<br/>
-	<br/>
-		<div id="userNutrition"><a href="usernutrition">TBD - User Nutrition Page</a></div>
+		<div id="liftprogresshome"><a href="liftprogresshome">TBD - Lift Progress</a></div>
 	<br/>
 	
 <!-- we can decide later what data is loaded on the main landing page -->

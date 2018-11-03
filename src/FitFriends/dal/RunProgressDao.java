@@ -14,23 +14,23 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class RunTimeProgressDao {
+public class RunProgressDao {
 	protected ConnectionManager connectionManager;
 	
 	// Single pattern: instantiation is limited to one object.
-	private static RunTimeProgressDao instance = null;
-	protected RunTimeProgressDao() {
+	private static RunProgressDao instance = null;
+	protected RunProgressDao() {
 		connectionManager = new ConnectionManager();
 	}
-	public static RunTimeProgressDao getInstance() {
+	public static RunProgressDao getInstance() {
 		if(instance == null) {
-			instance = new RunTimeProgressDao();
+			instance = new RunProgressDao();
 		}
 		return instance;
 	}
 
-	// Save the RunTimeProgress instance by storing it in your MySQL instance.
-	public RunTimeProgress create(RunTimeProgress runTimeProgress) throws SQLException {
+	// Save the RunProgress instance by storing it in your MySQL instance.
+	public RunProgress create(RunProgress runProgress) throws SQLException {
 		String insertItem = "INSERT INTO RunProgress (MemberId, Created, DistanceMeters, RunTimeSeconds) VALUES (?,?,?,TIME_TO_SEC(?));";
 		Connection connection = null;
 		PreparedStatement insertStmt = null;
@@ -38,14 +38,14 @@ public class RunTimeProgressDao {
 		try {
 			connection = connectionManager.getConnection();
 			insertStmt = connection.prepareStatement(insertItem);
-			insertStmt.setInt(1, runTimeProgress.getMemberId());
-			insertStmt.setTimestamp(2, new Timestamp(runTimeProgress.getCreated().getTime()));
-			insertStmt.setInt(3, runTimeProgress.getDistanceMeters());
-			insertStmt.setTimestamp(2, new Timestamp(runTimeProgress.getRunTime().getTime()));
+			insertStmt.setInt(1, runProgress.getMemberId());
+			insertStmt.setTimestamp(2, new Timestamp(runProgress.getCreated().getTime()));
+			insertStmt.setInt(3, runProgress.getDistanceMeters());
+			insertStmt.setTimestamp(2, new Timestamp(runProgress.getRunTime().getTime()));
 
 			insertStmt.executeUpdate();
 
-			return runTimeProgress;
+			return runProgress;
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw e;
@@ -59,23 +59,23 @@ public class RunTimeProgressDao {
 		}
 	}
 
-	// Update the Run Time of the RunTimeProgress instance.
-	public RunTimeProgress updateRunTime(RunTimeProgress runTimeProgress, double runTime) throws SQLException {
+	// Update the Run Time of the RunProgress instance.
+	public RunProgress updateRunTime(RunProgress runProgress, double runTime) throws SQLException {
 		String updateItem = "UPDATE RunProgress SET RunTimeSeconds = TIME_TO_SEC(?) WHERE MemberId=? AND Created=? AND DistanceMeters=?;";
 		Connection connection = null;
 		PreparedStatement updateStmt = null;
 		try {
 			connection = connectionManager.getConnection();
 			updateStmt = connection.prepareStatement(updateItem);
-			updateStmt.setInt(2, runTimeProgress.getMemberId());
-			updateStmt.setTimestamp(3, new Timestamp(runTimeProgress.getCreated().getTime()));
-			updateStmt.setInt(4, runTimeProgress.getDistanceMeters());
-			updateStmt.setTimestamp(2, new Timestamp(runTimeProgress.getRunTime().getTime()));
+			updateStmt.setInt(2, runProgress.getMemberId());
+			updateStmt.setTimestamp(3, new Timestamp(runProgress.getCreated().getTime()));
+			updateStmt.setInt(4, runProgress.getDistanceMeters());
+			updateStmt.setTimestamp(2, new Timestamp(runProgress.getRunTime().getTime()));
 			
 	
 			updateStmt.executeUpdate();
 			
-			return runTimeProgress;
+			return runProgress;
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw e;
@@ -90,21 +90,21 @@ public class RunTimeProgressDao {
 	}
 
 	
-	// Delete the RunTimeProgress instance.
-	public RunTimeProgress delete(RunTimeProgress runTimeProgress) throws SQLException {
+	// Delete the RunProgress instance.
+	public RunProgress delete(RunProgress runProgress) throws SQLException {
 		String deleteItem = "DELETE FROM RunProgress WHERE MemberId=? AND Created=? AND DistanceMeters=?;";
 		Connection connection = null;
 		PreparedStatement deleteStmt = null;
 		try {
 			connection = connectionManager.getConnection();
 			deleteStmt = connection.prepareStatement(deleteItem);
-			deleteStmt.setInt(1, runTimeProgress.getMemberId());
-			deleteStmt.setTimestamp(2, new Timestamp(runTimeProgress.getCreated().getTime()));
-			deleteStmt.setInt(3, runTimeProgress.getDistanceMeters());
+			deleteStmt.setInt(1, runProgress.getMemberId());
+			deleteStmt.setTimestamp(2, new Timestamp(runProgress.getCreated().getTime()));
+			deleteStmt.setInt(3, runProgress.getDistanceMeters());
 			
 			deleteStmt.executeUpdate();
 
-			// Return null so the caller can no longer operate on the RunTimeProgress instance.
+			// Return null so the caller can no longer operate on the RunProgress instance.
 			return null;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -120,8 +120,8 @@ public class RunTimeProgressDao {
 	}
 
 	
-	// Get the RunTimeProgress record by fetching it from your MySQL instance by its key values
-	public RunTimeProgress getRunTimesForUserByRunProgress(RunTimeProgress runTimeProgress) throws SQLException {
+	// Get the RunProgress record by fetching it from your MySQL instance by its key values
+	public RunProgress getRunTimesForUserByRunProgress(RunProgress runProgress) throws SQLException {
 		String selectItem = "SELECT R.MemberId, R.Created, R.DistanceMeters, SEC_TO_TIME(R.RunTimeSeconds) AS RunTime " +
 				"FROM RunProgress R " + 
 				"WHERE R.MemberId=? ORDER BY DistanceMeters, Created;";
@@ -132,9 +132,9 @@ public class RunTimeProgressDao {
 		try {
 			connection = connectionManager.getConnection();
 			selectStmt = connection.prepareStatement(selectItem);
-			selectStmt.setInt(1, runTimeProgress.getMemberId());
-			selectStmt.setTimestamp(2, new Timestamp(runTimeProgress.getCreated().getTime()));
-			selectStmt.setInt(3, runTimeProgress.getDistanceMeters());
+			selectStmt.setInt(1, runProgress.getMemberId());
+			selectStmt.setTimestamp(2, new Timestamp(runProgress.getCreated().getTime()));
+			selectStmt.setInt(3, runProgress.getDistanceMeters());
 
 			results = selectStmt.executeQuery();
 			if(results.next()) {
@@ -143,8 +143,8 @@ public class RunTimeProgressDao {
 				int resultDistance = results.getInt("DistanceMeters");
 				Date runTime = results.getDate("RunTime");
 				
-				RunTimeProgress runTimeProgress1 = new RunTimeProgress(resultMemberId, resultCreated, resultDistance, runTime);
-				return runTimeProgress1;
+				RunProgress runProgress1 = new RunProgress(resultMemberId, resultCreated, resultDistance, runTime);
+				return runProgress1;
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -164,10 +164,10 @@ public class RunTimeProgressDao {
 	}
 	
 
-	// Get the matching RunTimeProgress records by Member ID
-	public List<RunTimeProgress> getRunTimeProgressByMemberId(int memberId) throws SQLException {
-		List<RunTimeProgress> runTimeProgresss = new ArrayList<RunTimeProgress>();
-		String selectRunTimeProgress =
+	// Get the matching RunProgress records by Member ID
+	public List<RunProgress> getRunProgressByMemberId(int memberId) throws SQLException {
+		List<RunProgress> runProgress = new ArrayList<RunProgress>();
+		String selectRunProgress =
 				"SELECT R.MemberId, R.Created, R.DistanceMeters, SEC_TO_TIME(R.RunTimeSeconds) AS RunTime " +
 				"FROM RunProgress R " + 
 				"WHERE R.MemberId=? ORDER BY DistanceMeters, Created;";
@@ -177,7 +177,7 @@ public class RunTimeProgressDao {
 		ResultSet results = null;
 		try {
 			connection = connectionManager.getConnection();
-			selectStmt = connection.prepareStatement(selectRunTimeProgress);
+			selectStmt = connection.prepareStatement(selectRunProgress);
 			selectStmt.setInt(1, memberId);
 			results = selectStmt.executeQuery();
 			while(results.next()) {
@@ -186,8 +186,8 @@ public class RunTimeProgressDao {
 				int resultDistance = results.getInt("DistanceMeters");
 				Date runTime = results.getDate("RunTime");
 				
-				RunTimeProgress runTimeProgress1 = new RunTimeProgress(resultMemberId, resultCreated, resultDistance, runTime);
-				runTimeProgresss.add(runTimeProgress1);
+				RunProgress runProgress1 = new RunProgress(resultMemberId, resultCreated, resultDistance, runTime);
+				runProgress.add(runProgress1);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -203,12 +203,12 @@ public class RunTimeProgressDao {
 				results.close();
 			}
 		}
-		return runTimeProgresss;
+		return runProgress;
 	}
 
-	// Get the RunTimeProgress record by fetching it from your MySQL instance by username
-	public List<RunTimeProgress> getRunTimeProgressByUserName(String userName) throws SQLException {
-		List<RunTimeProgress> runTimeProgress = new ArrayList<RunTimeProgress>();
+	// Get the RunProgress record by fetching it from your MySQL instance by username
+	public List<RunProgress> getRunProgressByUserName(String userName) throws SQLException {
+		List<RunProgress> runProgress = new ArrayList<RunProgress>();
 
 		String selectRunTimes = "SELECT R.MemberId, R.Created, R.DistanceMeters, SEC_TO_TIME(R.RunTimeSeconds) AS RunTime, P.UserName, P.FirstName, P.LastName " +
 				"FROM RunProgress R INNER JOIN Persons P ON R.MemberId = P.MemberId " + 
@@ -231,8 +231,8 @@ public class RunTimeProgressDao {
 				String firstName = results.getString("FirstName");
 				String lastName = results.getString("LastName");
 				
-				RunTimeProgress runTimeProgress1 = new RunTimeProgress(memberId, created, distance, runTime, resultUserName, firstName, lastName);
-				runTimeProgress.add(runTimeProgress1);				
+				RunProgress runProgress1 = new RunProgress(memberId, created, distance, runTime, resultUserName, firstName, lastName);
+				runProgress.add(runProgress1);				
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -248,7 +248,7 @@ public class RunTimeProgressDao {
 				results.close();
 			}
 		}
-		return runTimeProgress;
+		return runProgress;
 	}
 	
 }

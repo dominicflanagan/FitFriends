@@ -10,13 +10,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <!-- Bootstrap -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
-<title>Top Runners Nutrition</title>
+<title>Top Runners</title>
 </head>
 <body>
 	<div class ="container theme-showcase" role="main">
-	<form action="toprunnersnutritionhome" method="post">
+	<form action="toprunnershome" method="post">
 	<div class="jumbotron">
-		<h1>Top Runners Nutrition Home Page</h1>
+		<h1>Top Runners</h1>
 		</div>
 		<p>
 			<label for="event">Event Distance in Meters</label>
@@ -32,10 +32,9 @@
 			<span id="successMessage"><b>${messages.success}</b></span>
 		</p>
 	</form>
-	<h1>Nutrition Summary for Top Runners</h1>
+	<h1>Top Runners</h1>
         <table class="table table-striped">
             <tr>
-                <th>MemberId</th>
                 <th>UserName</th>
                 <th>FirstName</th>
                 <th>LastName</th>
@@ -45,10 +44,10 @@
                 <th style="text-align:right">Sugars</th>
                 <th style="text-align:right">Total Calories</th>
                 <th>Nutrition Plan</th>
+                <th>Run Progress</th>
             </tr>
-            <c:forEach items="${toprunnersnutritions}" var="toprunner" >
+            <c:forEach items="${toprunners}" var="toprunner" >
                 <tr>
-                    <td><c:out value="${toprunner.getMemberId()}" /></td>
                     <td><c:out value="${toprunner.getUserName()}" /></td>
                     <td><c:out value="${toprunner.getFirstName()}" /></td>
                     <td><c:out value="${toprunner.getLastName()}" /></td>
@@ -57,9 +56,8 @@
                     <td align="right"><fmt:formatNumber type = "number" pattern = "0.00" value = "${toprunner.getSatFats()}" /></td>
                     <td align="right"><fmt:formatNumber type = "number" pattern = "0.00" value = "${toprunner.getSugars()}" /></td>
                     <td align="right"><fmt:formatNumber type = "number" pattern = "0.00" value = "${toprunner.getTotalCalories()}" /></td>
-   
                     <td><a href="nutritionplanhome?username=<c:out value="${toprunner.getUserName()}"/>">Nutrition Plan</a></td>
-                    
+                    <td><a href="runprogresshome?username=<c:out value="${toprunner.getUserName()}"/>">Run Progress</a></td>
                  </tr>
             </c:forEach>
        </table>

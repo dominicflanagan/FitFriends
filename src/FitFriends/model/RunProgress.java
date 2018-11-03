@@ -4,7 +4,7 @@ package FitFriends.model;
 
 import java.util.Date;
 
-public class RunTimeProgress {
+public class RunProgress {
 	protected int memberId;
 	protected Date created; 
 	protected int distanceMeters;
@@ -15,7 +15,7 @@ public class RunTimeProgress {
 
 	
 	// constructor with all Run Progress attributes
-	public RunTimeProgress(int memberId, Date created, int distanceMeters, Date runTime) {
+	public RunProgress(int memberId, Date created, int distanceMeters, Date runTime) {
 		this.memberId = memberId;
 		this.created = created; 
 		this.distanceMeters = distanceMeters;
@@ -23,12 +23,12 @@ public class RunTimeProgress {
 	}
 	
 	// constructor with only the unique key MemberId attribute
-	public RunTimeProgress(int memberId) {
+	public RunProgress(int memberId) {
 		this.memberId = memberId;
 	}
 
 	// constructor with all Run Progress and User attributes
-	public RunTimeProgress(int memberId, Date created, int distanceMeters, Date runTime,
+	public RunProgress(int memberId, Date created, int distanceMeters, Date runTime,
 			String userName, String firstName, String lastName) {
 		this.memberId = memberId;
 		this.created = created; 
