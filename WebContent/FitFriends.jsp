@@ -25,15 +25,6 @@
 		<div id="topliftershome"><a href="topliftershome">Top Lifters</a></div>
 	<br/>
 	<br/>
-		<div id="personsHome"><a href="personshome">Persons</a></div>
-	<br/>
-	<br/>
-		<div id="usersHome"><a href="usershome">Users</a></div>
-	<br/>
-	<br/>
-		<div id="nutritionhome"><a href="nutritionhome">Nutrition</a></div>
-	<br/>
-	<br/>
 		<div id="nutritionplanhome"><a href="nutritionplanhome">User Nutrition Plan</a></div>
 	<br/>
 	<br/>
@@ -41,6 +32,9 @@
 	<br/>
 	<br/>
 		<div id="liftprogresshome"><a href="liftprogresshome">Lift Progress</a></div>
+	<br/>
+	<br/>
+		<div id="usersHome"><a href="usershome">Users</a></div>
 	<br/>
 <!-- we can decide later what data is loaded on the main landing page -->
 <!-- 

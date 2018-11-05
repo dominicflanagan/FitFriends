@@ -2,12 +2,12 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
   <display-name>FitFriends</display-name>
   <welcome-file-list>
-    <welcome-file>FitFriends.jsp</welcome-file>
+    <welcome-file>UsersHome.jsp</welcome-file>
   </welcome-file-list>
   <!--
   <servlet>
-    <servlet-name>FitFriends</servlet-name>
-    <servlet-class>blog.servlet.FitFriends</servlet-class>
+    <servlet-name>UsersHome</servlet-name>
+    <servlet-class>FitFriends.servlet.UsersHome</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>FitFriends</servlet-name>

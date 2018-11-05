@@ -16,8 +16,12 @@
 	<div class ="container theme-showcase" role="main">
 	<form action="usershome" method="post">
 	<div class="jumbotron">
-		<h1>User Home Page</h1>
+		<h1>Welcome to FitFriends!</h1>
 		</div>
+		<br/><div id="toprunnershome"><a href="toprunnershome">Top Runners</a></div><br/>
+		<br><div id="topliftershome"><a href="topliftershome">Top Lifters</a></div><br/>
+		<br><div id="userCreate"><a href="usercreate">Create a New User</a></div><br/>
+		<br><h1>Find A User</h1><br/>
 		<p>
 			<label for="lastname">User Last Name</label>
 			<input id="lastname" name="lastname" value="${fn:escapeXml(param.lastname)}">
@@ -28,9 +32,6 @@
 			<span id="successMessage"><b>${messages.success}</b></span>
 		</p>
 	</form>
-	<br/>
-	<div id="userCreate"><a href="usercreate">Create a New User</a></div>
-	<br/>
 	<h1>Matching Users</h1>
         <table class="table table-striped">
             <tr>
