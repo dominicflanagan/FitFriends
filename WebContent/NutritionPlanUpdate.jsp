@@ -13,22 +13,21 @@
 <title>Update Nutrition Plan</title>
 </head>
 <body>
-<!--  	<h1>${messages.title}</h1> -->
 	<div class ="container theme-showcase" role="main">
 		<form action="nutritionplanupdate" method="post">
 	<div class="jumbotron">
 		<h1>${messages.title}</h1>
 	</div>
+		<div <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>
 		<p>
-			<div <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>
-  				<label for="username">UserName</label>
+				<label style="width:185px" for="username">UserName</label>
 				<input id="username" name="username" value="${fn:escapeXml(param.username)}">
 				<p>
-				<label for="nutritionid">NutritionId</label>
+				<label style="width:185px" for="nutritionid">NutritionId</label>
 				<input id="nutritionid" name="nutritionid" value="${fn:escapeXml(param.nutritionid)}">
 				</p>
 				<p>
-				<label for="newnumberservings">Change the Number of Servings to </label>
+				<label style="width:185px" for="newnumberservings">Update Number Servings to </label>
 				<input id="newnumberservings" name="newnumberservings" value="${fn:escapeXml(param.newnumberservings)}">
 				</p>
 			</div>

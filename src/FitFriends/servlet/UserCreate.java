@@ -40,6 +40,7 @@ public class UserCreate extends HttpServlet {
         Map<String, String> messages = new HashMap<String, String>();
         req.setAttribute("messages", messages);
         //Just render the JSP.   
+        messages.put("title", "Create a User");
         req.getRequestDispatcher("/UserCreate.jsp").forward(req, resp);
 	}
 	
@@ -75,6 +76,7 @@ public class UserCreate extends HttpServlet {
 	        	Users user = new Users(userName, firstName, lastName, email, psw, dob, fitnessLevel);
 	        	user = usersDao.create(user);
 	        	messages.put("success", "Successfully created " + userName);
+	        	messages.put("title", "Successfully created " + userName);
 	        } catch (SQLException e) {
 				e.printStackTrace();
 				throw new IOException(e);

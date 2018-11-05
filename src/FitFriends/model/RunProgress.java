@@ -22,6 +22,13 @@ public class RunProgress {
 		this.runTime = runTime;
 	}
 	
+	// constructor with all Run Progress attributes
+	public RunProgress(int memberId, Date created, int distanceMeters) {
+		this.memberId = memberId;
+		this.created = created; 
+		this.distanceMeters = distanceMeters;
+	}
+	
 	// constructor with only the unique key MemberId attribute
 	public RunProgress(int memberId) {
 		this.memberId = memberId;

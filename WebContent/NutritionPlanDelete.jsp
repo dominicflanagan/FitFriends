@@ -15,13 +15,13 @@
 	<form action="nutritionplandelete" method="post">
 		<p>
 			<div <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>
-				<label for="memberid">Member Id</label>
+				<label style="width:85px" for="memberid">Member Id</label>
 				<input id="memberid" name="memberid" value="${fn:escapeXml(param.memberid)}">
 			</div>
 		</p>
 		<p>
 			<div <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>
-				<label for="nutritionid">Nutrition Id</label>
+				<label style="width:85px" for="nutritionid">Nutrition Id</label>
 				<input id="nutritionid" name="nutritionid" value="${fn:escapeXml(param.nutritionid)}">
 			</div>
 		</p>

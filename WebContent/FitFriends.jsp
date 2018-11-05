@@ -39,7 +39,6 @@
 	<br/>
 		<div id="liftprogresshome"><a href="liftprogresshome">TBD - Lift Progress</a></div>
 	<br/>
-	
 <!-- we can decide later what data is loaded on the main landing page -->
 <!-- 
 	<p>

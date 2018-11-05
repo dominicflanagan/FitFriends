@@ -14,23 +14,23 @@
 	<h1>Create Person</h1>
 	<form action="personcreate" method="post">
 		<p>
-			<label for="username">UserName</label>
+			<label style="width:95px" for="username">UserName</label>
 			<input id="username" name="username" value="">
 		</p>
 		<p>
-			<label for="psw">Password</label>
+			<label style="width:95px" for="psw">Password</label>
 			<input id="psw" name="psw" value="">
 		</p>
 		<p>
-			<label for="firstname">FirstName</label>
+			<label style="width:95px" for="firstname">FirstName</label>
 			<input id="firstname" name="firstname" value="">
 		</p>
 		<p>
-			<label for="lastname">LastName</label>
+			<label style="width:95px" for="lastname">LastName</label>
 			<input id="lastname" name="lastname" value="">
 		</p>
 		<p>
-			<label for="email">Email</label>
+			<label style="width:95px" for="email">Email</label>
 			<input id="email" name="email" value="">
 		</p>
 		<p>

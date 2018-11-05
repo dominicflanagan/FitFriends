@@ -19,11 +19,11 @@
 		<h1>Top Runners</h1>
 		</div>
 		<p>
-			<label for="event">Event Distance in Meters</label>
+			<label style="width:235px" for="event">Event Distance in Meters</label>
 			<input id="event" name="event" value="${fn:escapeXml(param.event)}">
 		</p>
 		<p>
-			<label for="topN">Number of Top Runners to Display</label>
+			<label style="width:235px" for="topN">Number of Top Runners to Display</label>
 			<input id="topN" name="topN" value="${fn:escapeXml(param.topN)}">
 		</p>
 		<p>

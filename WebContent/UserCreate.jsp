@@ -8,46 +8,60 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<!-- Bootstrap -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
 <title>Create a User</title>
 </head>
 <body>
-	<h1>Create User</h1>
-	<form action="usercreate" method="post">
+	<div class ="container theme-showcase" role="main">
+			<form action="usercreate" method="post">
+	<div class="jumbotron">
+		<h1>${messages.title}</h1>
+	</div>
+	<div <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>
 		<p>
-			<label for="username">UserName</label>
+			<label style="width:95px" for="username">UserName</label>
 			<input id="username" name="username" value="">
 		</p>
 		<p>
-			<label for="psw">psw</label>
+			<label style="width:95px" for="psw">Password</label>
 			<input id="psw" name="psw" value="">
 		</p>
 		<p>
-			<label for="firstname">FirstName</label>
+			<label style="width:95px" for="firstname">FirstName</label>
 			<input id="firstname" name="firstname" value="">
 		</p>
 		<p>
-			<label for="lastname">LastName</label>
+			<label style="width:95px" for="lastname">LastName</label>
 			<input id="lastname" name="lastname" value="">
 		</p>
 		<p>
-			<label for="email">Email</label>
+			<label style="width:95px" for="email">Email</label>
 			<input id="email" name="email" value="">
 		</p>
 		<p>
-			<label for="dob">Date of Birth</label>
+			<label style="width:95px" for="dob">Date of Birth</label>
 			<input id="dob" name="dob" value="">
 		</p>
+		</div>
 		<p>
-			<label for="fitnesslevel">Fitness Level</label>
+			<label style="width:95px" for="fitnesslevel">Fitness Level</label>
 			<input id="fitnesslevel" name="fitnesslevel" value="">
 		</p>
 		<p>
-			<input type="submit">
+			<span id="submitButton" <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>
+			<input type="submit" class="btn btn-lg btn-primary">
+			</span>
 		</p>
 	</form>
 	<br/><br/>
 	<p>
 		<span id="successMessage"><b>${messages.success}</b></span>
 	</p>
+	</div>
+	     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
 </body>
 </html>
