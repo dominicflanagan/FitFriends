@@ -22,6 +22,9 @@
 		<div id="toprunnershome"><a href="toprunnershome">Top Runners</a></div>
 	<br/>
 	<br/>
+		<div id="topliftershome"><a href="topliftershome">Top Lifters</a></div>
+	<br/>
+	<br/>
 		<div id="personsHome"><a href="personshome">Persons</a></div>
 	<br/>
 	<br/>
@@ -37,7 +40,7 @@
 		<div id="runprogresshome"><a href="runprogresshome">Run Progress</a></div>
 	<br/>
 	<br/>
-		<div id="liftprogresshome"><a href="liftprogresshome">TBD - Lift Progress</a></div>
+		<div id="liftprogresshome"><a href="liftprogresshome">Lift Progress</a></div>
 	<br/>
 <!-- we can decide later what data is loaded on the main landing page -->
 <!-- 

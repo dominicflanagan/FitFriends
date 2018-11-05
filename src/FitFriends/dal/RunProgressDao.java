@@ -41,7 +41,7 @@ public class RunProgressDao {
 			insertStmt.setInt(1, runProgress.getMemberId());
 			insertStmt.setTimestamp(2, new Timestamp(runProgress.getCreated().getTime()));
 			insertStmt.setInt(3, runProgress.getDistanceMeters());
-			insertStmt.setTimestamp(2, new Timestamp(runProgress.getRunTime().getTime()));
+			insertStmt.setTimestamp(4, new Timestamp(runProgress.getRunTime().getTime()));
 
 			insertStmt.executeUpdate();
 

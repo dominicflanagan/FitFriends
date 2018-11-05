@@ -20,14 +20,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/toprunnershome")
-public class TopRunnersHome extends HttpServlet {
+@WebServlet("/topliftershome")
+public class TopLiftersHome extends HttpServlet {
 	
-	protected TopRunnersDao topRunnersDao;
+	protected TopLiftersDao topLiftersDao;
 	
 	@Override
 	public void init() throws ServletException {
-		topRunnersDao = TopRunnersDao.getInstance();
+		topLiftersDao = TopLiftersDao.getInstance();
 	}
 	
 @Override
@@ -37,33 +37,33 @@ public class TopRunnersHome extends HttpServlet {
         Map<String, String> messages = new HashMap<String, String>();
         req.setAttribute("messages", messages);
 
-        List<TopRunners> topRunners = new ArrayList<TopRunners>();
+        List<TopLifters> topLifters = new ArrayList<TopLifters>();
         
         // Retrieve and validate the parameters retrieved from the URL query string.
-        String stringEvent = req.getParameter("event");
+        String stringWeight = req.getParameter("weight");
         String stringTopN = req.getParameter("topN");
-        if (stringEvent == null || stringEvent.trim().isEmpty() || stringTopN == null || stringTopN.trim().isEmpty()) {
-            messages.put("success", "Please enter  a valid event and topN number.");
+        if (stringWeight == null || stringWeight.trim().isEmpty() || stringTopN == null || stringTopN.trim().isEmpty()) {
+            messages.put("success", "Please enter  a valid weight and topN number.");
         } else {
-        	int event = Integer.parseInt(stringEvent);
+        	int weight = Integer.parseInt(stringWeight);
         	int topN = Integer.parseInt(stringTopN);
         	// Retrieve data, and store as a message.
         	try {
-        		topRunners = topRunnersDao.getTopRunners(event, topN);
+        		topLifters = topLiftersDao.getTopLifters(weight, topN);
             } catch (SQLException e) {
     			e.printStackTrace();
     			throw new IOException(e);
             }
-        	messages.put("success", "Displaying results for the top " + topN + " runners in the " + event + " event");
+        	messages.put("success", "Displaying results for the top " + topN + " lifters for the " + weight + " pounds weight");
         	// Save the previous search term, so it can be used as the default
         	// in the input box when rendering PersonsHome.jsp.
-        	messages.put("previousEvent", stringEvent);
+        	messages.put("previousWeight", stringWeight);
         	messages.put("previousTopN", stringTopN);
         }
  
-        req.setAttribute("toprunners", topRunners);
+        req.setAttribute("toplifters", topLifters);
         
-        req.getRequestDispatcher("/TopRunnersHome.jsp").forward(req, resp);
+        req.getRequestDispatcher("/TopLiftersHome.jsp").forward(req, resp);
 	}
 
 @Override
@@ -73,28 +73,28 @@ public void doPost(HttpServletRequest req, HttpServletResponse resp)
     Map<String, String> messages = new HashMap<String, String>();
     req.setAttribute("messages", messages);
 
-    List<TopRunners> topRunners = new ArrayList<TopRunners>();
+    List<TopLifters> topLifters = new ArrayList<TopLifters>();
     
     // Retrieve and validate the parameters retrieved from the URL query string.
-    String stringEvent = req.getParameter("event");
+    String stringWeight = req.getParameter("weight");
     String stringTopN = req.getParameter("topN");
-    if (stringEvent == null || stringEvent.trim().isEmpty() || stringTopN == null || stringTopN.trim().isEmpty()) {
-        messages.put("success", "Please enter  a valid event and topN number.");
+    if (stringWeight == null || stringWeight.trim().isEmpty() || stringTopN == null || stringTopN.trim().isEmpty()) {
+        messages.put("success", "Please enter  a valid weight and topN number.");
     } else {
-    	int event = Integer.parseInt(stringEvent);
+    	int weight = Integer.parseInt(stringWeight);
     	int topN = Integer.parseInt(stringTopN);
     	// Retrieve data, and store as a message.
     	try {
-    		topRunners = topRunnersDao.getTopRunners(event, topN);
+    		topLifters = topLiftersDao.getTopLifters(weight, topN);
         } catch (SQLException e) {
 			e.printStackTrace();
 			throw new IOException(e);
         }
-    	messages.put("success", "Displaying results for the top " + topN + " runners in the " + event + " event");
+    	messages.put("success", "Displaying results for the top " + topN + " lifters for the " + weight + " pounds weight");
     }
-    req.setAttribute("toprunners", topRunners);
+    req.setAttribute("toplifters", topLifters);
     
-    req.getRequestDispatcher("/TopRunnersHome.jsp").forward(req, resp);
+    req.getRequestDispatcher("/TopLiftersHome.jsp").forward(req, resp);
 }
 }
 

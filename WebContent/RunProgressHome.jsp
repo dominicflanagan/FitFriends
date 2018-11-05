@@ -54,7 +54,7 @@
 		            <td style="text-align:right"><fmt:formatDate value="${runtime.getRunTime()}" pattern="mm:ss" /></td>
                     <td><a href="nutritionplanhome?username=<c:out value="${runtime.getUserName()}"/>">Nutrition Plan</a></td>
                     <td><a href="runprogressupdate?username=<c:out value="${runtime.getUserName()}"/>&created=<fmt:formatDate value="${runtime.getCreated()}" pattern="YYYY-MM-dd" />&distance=<c:out value="${runtime.getDistanceMeters()}"/>&runtime=<fmt:formatDate value="${runtime.getRunTime()}" pattern="mm:ss" />">Update Run Time</a></td>                
-                    <td><a href="runprogressdelete?username=<c:out value="${runtime.getUserName()}"/>&created=<c:out value="${runtime.getCreated()}"/>&distance=<c:out value="${runtime.getDistanceMeters()}"/>">Delete</a></td>                 
+                    <td><a href="runprogressdelete?username=<c:out value="${runtime.getUserName()}"/>&created=<fmt:formatDate value="${runtime.getCreated()}" pattern="YYYY-MM-dd" />&distance=<c:out value="${runtime.getDistanceMeters()}"/>">Delete</a></td>                 
                  </tr>
             </c:forEach>
        </table>

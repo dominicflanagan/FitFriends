@@ -10,12 +10,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <!-- Bootstrap -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
-<title>Update Run Progress</title>
+<title>Run Progress Delete</title>
 </head>
 <body>
 <!--  	<h1>${messages.title}</h1> -->
 	<div class ="container theme-showcase" role="main">
-		<form action="runprogressupdate" method="post">
+		<form action="runprogressdelete" method="post">
 	<div class="jumbotron">
 		<h1>${messages.title}</h1>
 	</div>
@@ -31,11 +31,6 @@
 				<p>
 				<label style="width:175px" for="distance">Distance</label>
 				<input id="distance" name="distance" value="${fn:escapeXml(param.distance)}">
-				</p>
-				<p>
-				<label style="width:175px" for="runtime">New Run Time in Seconds</label>
- 				<input id="runtime" name="runtime"> 
-<!-- 				<input id="runtime" name="runtime" value="${fn:escapeXml(param.runtime)}">  -->
 				</p>
 			</div>
 		<p>
@@ -53,8 +48,6 @@
                 <th style="text-align:right">Date of Run</th>
                 <th style="text-align:right">Distance</th>
                 <th style="text-align:right">Run Time</th>
-                <th>Nutrition Plan</th>
-                <th>Delete Run Time</th>
             </tr>
             <c:forEach items="${runprogress}" var="runtime" >
                 <tr>
@@ -64,8 +57,6 @@
                     <td style="text-align:right"><fmt:formatDate value="${runtime.getCreated()}" pattern="MM-dd-YYYY" /></td>
                     <td align="right"><fmt:formatNumber type = "number" pattern = "0.00" value = "${runtime.getDistanceMeters()}" /></td>
 		            <td style="text-align:right"><fmt:formatDate value="${runtime.getRunTime()}" pattern="mm:ss" /></td>
-                    <td><a href="nutritionplanhome?username=<c:out value="${runtime.getUserName()}"/>">Nutrition Plan</a></td>
-                    <td><a href="runtimedelete?username=<c:out value="${runtime.getUserName()}"/>&created=<c:out value="${runtime.getCreated()}"/>&distance=<c:out value="${runtime.getDistanceMeters()}"/>">Delete</a></td>                 
                  </tr>
             </c:forEach>
        </table>
