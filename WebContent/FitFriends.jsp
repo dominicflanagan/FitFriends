@@ -36,6 +36,15 @@
 	<br/>
 		<div id="usersHome"><a href="usershome">Users</a></div>
 	<br/>
+	<br/>
+		<div id="workout"><a href="workout">Workouts</a></div>
+	<br/>
+	<br/>
+		<div id="userworkout"><a href="userworkout">User Workouts</a></div>
+	<br/>
+	<br/>
+		<div id="meetup"><a href="meetup">MeetUps</a></div>
+	<br/>
 <!-- we can decide later what data is loaded on the main landing page -->
 <!-- 
 	<p>
