@@ -43,11 +43,18 @@
 			<label style="width:95px" for="dob">Date of Birth</label>
 			<input id="dob" name="dob" value="">
 		</p>
-		</div>
 		<p>
-			<label style="width:95px" for="fitnesslevel">Fitness Level</label>
-			<input id="fitnesslevel" name="fitnesslevel" value="">
-		</p>
+			<label for="fitnesslevel">Please select your fitness level</label>
+			</p>
+			<div>
+    		<input type="radio" id="fitnesslevel1" name="fitnesslevel" value="Beginner">
+    		<label for="fitnesslevel1">Beginner</label>
+   			<input type="radio" id="fitnesslevel2" name="fitnesslevel" value="Intermediate">
+    		<label for="fitnesslevel1">Intermediate</label>
+        	<input type="radio" id="fitnesslevel3" name="fitnesslevel" value="Advanced">
+    		<label for="fitnesslevel1">Advanced</label>
+			</div>
+  		<p></p>
 		<p>
 			<span id="submitButton" <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>
 			<input type="submit" class="btn btn-lg btn-primary">
