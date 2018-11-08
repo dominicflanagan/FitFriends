@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import FitFriends.dal.WorkoutExersisesDao;
 import FitFriends.dal.WorkoutsDao;
 import FitFriends.model.Exercise;
+import FitFriends.model.WorkoutExercise;
 import FitFriends.model.Workouts;
 
 @WebServlet("/workoutexercises")
@@ -33,7 +34,7 @@ public class WorkoutExercises extends HttpServlet {
         Map<String, String> messages = new HashMap<String, String>();
         req.setAttribute("messages", messages);
 
-        List<Exercise> workoutExercises = new ArrayList<Exercise>();
+        List<WorkoutExercise> workoutExercises = new ArrayList<WorkoutExercise>();
         
         // Retrieve and validate the intensity that is retrieved from the URL query string.
         String workoutId = req.getParameter("workoutid");
@@ -52,6 +53,8 @@ public class WorkoutExercises extends HttpServlet {
         	// in the input box when rendering FindUsers.jsp.
         
         }
+        
+        req.setAttribute("workoutid", workoutId);
  
         req.setAttribute("workoutexercises", workoutExercises);
         
@@ -65,7 +68,7 @@ public class WorkoutExercises extends HttpServlet {
 		Map<String, String> messages = new HashMap<String, String>();
 		req.setAttribute("messages", messages);
 
-		 List<Exercise> workoutExercises = new ArrayList<Exercise>();
+		 List<WorkoutExercise> workoutExercises = new ArrayList<WorkoutExercise>();
     
 		// Retrieve and validate the user last name that is retrieved from the form POST submission. By default, it
 		// is populated by the URL query string (in FindUsers.jsp).
@@ -86,6 +89,8 @@ public class WorkoutExercises extends HttpServlet {
 	        
 	        }
 	 
+	        req.setAttribute("workoutid", workoutId);
+	        
 	        req.setAttribute("workoutexercises", workoutExercises);
 	        
 	        req.getRequestDispatcher("/WorkoutExercises.jsp").forward(req, resp);

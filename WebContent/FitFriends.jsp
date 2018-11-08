@@ -45,6 +45,9 @@
 	<br/>
 		<div id="meetup"><a href="meetup">MeetUps</a></div>
 	<br/>
+	<br/>
+		<div id="usermeetup"><a href="usermeetup">User MeetUps</a></div>
+	<br/>
 <!-- we can decide later what data is loaded on the main landing page -->
 <!-- 
 	<p>

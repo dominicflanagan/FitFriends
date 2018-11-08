@@ -14,19 +14,21 @@
 </head>
 <body>
 	<div class ="container theme-showcase" role="main">
-	<form action="workout" method="post">
+	<form action="workoutexerciseadd" method="get">
 	<div class="jumbotron">
 		<h1>Workout Excerises</h1>
 		</div>
-		<%-- <p>
-			<label for="intensity"> Filter by workout intensity</label>
-			<input id="intensity" name="intensity" value="${fn:escapeXml(param.intensity)}">
+		<p>
+			<label for="exerciseid"> Add the exercise to the workout</label>	
+			<input id="exerciseid" name="exerciseid" value="${fn:escapeXml(param.exerciseid)}">
+			<input id="workoutid" name="workoutid" value="${workoutid}">
 		</p>
 		<p>
 			<input type="submit" class="btn btn-lg btn-primary">
 			<br/><br/><br/>
 			<span id="successMessage"><b>${messages.success}</b></span>
-		</p> --%>
+			<span id="workoutid"><b>${workoutid}</b></span>
+		</p> 
 	</form>
 	<!-- <br/>
 	<div id="workoutcreate"><a href="workoutcreate">Create a new workout</a></div>
@@ -37,12 +39,14 @@
                 <th>ExerciseId</th>
                 <th>MuscleGroup</th>
                 <th>Exercise</th>
+                <th>Remove</th>
             </tr>
             <c:forEach items="${workoutexercises}" var="exercise" >
    		    	<tr>
-                    <td><c:out value="${exercise.getExerciseId()}" /></td>
-                    <td><c:out value="${exercise.getMuscleGroup()}" /></td>
-                    <td><c:out value="${exercise.getExercise()}" /></td>
+                    <td><c:out value="${exercise.getExercise().getExerciseId()}" /></td>
+                    <td><c:out value="${exercise.getExercise().getMuscleGroup()}" /></td>
+                    <td><c:out value="${exercise.getExercise().getExercise()}" /></td>
+                    <td><a href="removeworkoutexercise?workoutid=<c:out value="${exercise.getWorkoutId().toString()}"/>&exerciseid=<c:out value="${exercise.getExercise().getExerciseId().toString()}"/>">Remove</a></td>
                  </tr>
             </c:forEach>
        </table>
