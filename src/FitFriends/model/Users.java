@@ -2,7 +2,6 @@
 
 package FitFriends.model;
 
-import java.sql.Timestamp;
 import java.util.Date;
 
 public class Users extends Persons {
