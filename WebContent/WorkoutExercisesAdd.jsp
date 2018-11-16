@@ -11,7 +11,8 @@
 <title>User Workout Exercise Add</title>
 </head>
 <body>
-	<h1>${messages.title}</h1>
+	<a href="usershome"><img src="FitFriendsHome.jpg" alt="FitFriends Home" width="175" height="50"></a>
+	<font color="blue"><h1>${messages.title}</h1></font>
 	<form action="workoutexerciseadd" method="post">
 		<%-- <p>
 			<div <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>

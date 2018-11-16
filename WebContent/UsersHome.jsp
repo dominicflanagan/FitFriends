@@ -16,11 +16,15 @@
 	<div class ="container theme-showcase" role="main">
 	<form action="usershome" method="post">
 	<div class="jumbotron">
-		<h1>Welcome to FitFriends!</h1>
+		<a href="usershome"><img src="FitFriendsHome.jpg" alt="FitFriends Home" width="175" height="50"></a>
+		<font color="blue"><h1>Welcome to FitFriends!</h1></font>
 		</div>
-		<br/><div id="toprunnershome"><a href="toprunnershome">Top Runners</a></div><br/>
-		<br><div id="topliftershome"><a href="topliftershome">Top Lifters</a></div><br/>
-		<br><div id="userCreate"><a href="usercreate">Create a New User</a></div><br/>
+		<p>
+			<a href="toprunnershome"><img src="TopRunners.jpg" alt="Top Runners" width="250" height="170"></a>
+			<a href="topliftershome"><img src="TopLifters.jpg" alt="Top Lifters" width="250" height="170"></a>
+			<a href="UserMeetUp.jsp"><img src="UserMeetUps.jpg" alt="User Meet Ups" width="250" height="170"></a>
+		</p>
+		<br><div id="userCreate"><a href="usercreate"><h1>Register As a New User</a></h1></div><br/>
 		<br><h1>Find A User</h1><br/>
 		<p>
 			<label for="lastname">User Last Name</label>

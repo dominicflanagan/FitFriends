@@ -16,7 +16,8 @@
 	<div class ="container theme-showcase" role="main">
 	<form action="workoutexerciseadd" method="get">
 	<div class="jumbotron">
-		<h1>Workout Excerises</h1>
+		<a href="usershome"><img src="FitFriendsHome.jpg" alt="FitFriends Home" width="175" height="50"></a>
+		<font color="blue"><h1>Workout Excercises</h1></font>
 		</div>
 		<p>
 			<label for="exerciseid"> Add the exercise to the workout</label>	

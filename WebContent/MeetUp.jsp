@@ -16,7 +16,8 @@
 	<div class ="container theme-showcase" role="main">
 	<form action="meetup" method="post">
 	<div class="jumbotron">
-		<h1>MeetUps Home Page</h1>
+		<a href="usershome"><img src="FitFriendsHome.jpg" alt="FitFriends Home" width="175" height="50"></a>
+		<font color="blue"><h1>MeetUps</h1></font>
 		</div>
 		<p>
 			<label for="district"> Filter by meet up district</label>

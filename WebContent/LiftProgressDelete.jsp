@@ -10,14 +10,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <!-- Bootstrap -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
-<title>Lift Progress Delete</title>
+	<title>Lift Progress Delete</title>
 </head>
 <body>
 <!--  	<h1>${messages.title}</h1> -->
 	<div class ="container theme-showcase" role="main">
 		<form action="liftprogressdelete" method="post">
 	<div class="jumbotron">
-		<h1>${messages.title}</h1>
+		<a href="usershome"><img src="FitFriendsHome.jpg" alt="FitFriends Home" width="175" height="50"></a>
+		<font color="blue"><h1>${messages.title}</h1></font>
 	</div>
 			<div <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>
 				<p>

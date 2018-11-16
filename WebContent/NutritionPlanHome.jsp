@@ -13,11 +13,12 @@
 <title>User Nutrition Plan</title>
 </head>
 <body>
-	<h1>${messages.title}</h1>
+		<font color="blue"><h1>${messages.title}</h1></font>
 		<div class ="container theme-showcase" role="main">
 		<form action="nutritionplanhome" method="post">
 			<div class="jumbotron">
-		<h1>User Nutrition Plan</h1>
+		<a href="usershome"><img src="FitFriendsHome.jpg" alt="FitFriends Home" width="175" height="50"></a>
+		<font color="blue"><h1>User Nutrition Plan</h1></font>
 		</div>
 		<p>
 			<div <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>

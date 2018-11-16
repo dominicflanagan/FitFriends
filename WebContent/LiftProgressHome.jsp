@@ -10,13 +10,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <!-- Bootstrap -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
-<title>Lift Progress</title>
+	<title>Lift Progress</title>
 </head>
 <body>
 	<div class ="container theme-showcase" role="main">
 	<form action="liftprogresshome" method="post">
 	<div class="jumbotron">
-		<h1>Lift Progress</h1>
+		<a href="usershome"><img src="FitFriendsHome.jpg" alt="FitFriends Home" width="175" height="50"></a>
+		<font color="blue"><h1>Lift Progress</h1></font>
 		</div>
 		<p>
 			<label for="username">UserName</label>

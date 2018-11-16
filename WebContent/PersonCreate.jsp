@@ -11,7 +11,8 @@
 <title>Create a Person</title>
 </head>
 <body>
-	<h1>Create Person</h1>
+	<a href="usershome"><img src="FitFriendsHome.jpg" alt="FitFriends Home" width="175" height="50"></a>
+	<font color="blue"><h1>Create Person</h1></font>
 	<form action="personcreate" method="post">
 		<p>
 			<label style="width:95px" for="username">UserName</label>

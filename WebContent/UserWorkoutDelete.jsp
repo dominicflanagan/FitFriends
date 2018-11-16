@@ -11,7 +11,9 @@
 <title>Delete a User Workout</title>
 </head>
 <body>
-	<h1>${messages.title}</h1>
+<a href="usershome"><img src="FitFriendsHome.jpg" alt="FitFriends Home" width="175" height="50"></a>
+	<a href="usershome"><img src="FitFriendsHome.jpg" alt="FitFriends Home" width="175" height="50"></a>
+	<font color="blue"><h1>${messages.title}</h1></font>
 	<form action="userworkoutdelete" method="post">
 		<p>
 			<div <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>

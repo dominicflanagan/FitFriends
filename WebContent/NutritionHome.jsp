@@ -17,7 +17,8 @@
 		<div class ="container theme-showcase" role="main">
 		<form action="nutritionhome" method="post">
 			<div class="jumbotron">
-		<h1>Add Items To Your Nutrition Plan</h1>
+			<a href="usershome"><img src="FitFriendsHome.jpg" alt="FitFriends Home" width="175" height="50"></a>
+			<font color="blue"><h1>Add Items To Your Nutrition Plan</h1></font>
 		</div>
 		<p>
 			<div <c:if test="${messages.disableSubmit}">style="display:none"</c:if>>

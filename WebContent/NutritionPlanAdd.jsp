@@ -11,7 +11,8 @@
 <title>Add To Nutrition Plan</title>
 </head>
 <body>
-	<h1>Add an Item to Nutrition Plan</h1>
+	<a href="usershome"><img src="FitFriendsHome.jpg" alt="FitFriends Home" width="175" height="50"></a>
+	<font color="blue"><h1>Add an Item to Nutrition Plan</h1></font>
 	<form action="nutritionplanadd" method="post">
 		<p>
 			<label for="username">UserName</label>

@@ -11,7 +11,9 @@
 <title>Create a User</title>
 </head>
 <body>
-	<h1>Create UserWorkout</h1>
+<a href="usershome"><img src="FitFriendsHome.jpg" alt="FitFriends Home" width="175" height="50"></a>
+	<a href="usershome"><img src="FitFriendsHome.jpg" alt="FitFriends Home" width="175" height="50"></a>
+	<font color="blue"><h1>Create UserWorkout</h1></font>
 	<form action="userworkoutcreate" method="post">
 		<p>
 			<label for="username">UserName</label>
