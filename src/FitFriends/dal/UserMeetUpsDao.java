@@ -34,15 +34,16 @@ public class UserMeetUpsDao {
 		MeetUpsDao meetUpsDao = MeetUpsDao.getInstance();
 		MeetUps meetUp = meetUpsDao.getMeetUpByName(userMeetUp.getMeetUpName());
 		
-		String insertUserMeetUp = "INSERT INTO UserMeetUP(MeetUpId,MemberId, MeetUpTime) VALUES(?,?,?);";
+		String insertUserMeetUp = "INSERT INTO UserMeetUp(MeetUpId,MemberId, MeetUpTime) VALUES(?,?,?);";
 		Connection connection = null;
 		PreparedStatement insertStmt = null;
 		try {
 			connection = connectionManager.getConnection();
 			insertStmt = connection.prepareStatement(insertUserMeetUp);
-			insertStmt.setInt(1, meetUp.getMeetUpId());
-			insertStmt.setInt(2, user.getMemberId());
+			insertStmt.setInt(1, userMeetUp.getMeetUpId());
+			insertStmt.setInt(2, userMeetUp.getMemberId());
 			insertStmt.setTimestamp(3, userMeetUp.getMeetUpTime());
+			// insertStmt.setTimestamp(2, new Timestamp(user.getDob().getTime()));
 
 			insertStmt.executeUpdate();
 			

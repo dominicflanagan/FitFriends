@@ -39,6 +39,7 @@
                 <th>MeetUp Name</th>
                 <th>MeetUp Time</th>
                 <th>Edit MeetUp Time</th>
+                <th>Join the MeetUp</th>
                 <th>Delete</th>
             </tr>
             <c:forEach items="${usermeetups}" var="userMeetup" >
@@ -47,7 +48,8 @@
                     <td><c:out value="${userMeetup.getMeetUpName()}" /></td>
                     <td><c:out value="${userMeetup.getMeetUpTime()}" /></td>
                     <td><a href="usermeetupupdatetime?meetupid=<c:out value="${userMeetup.getMeetUpId().toString()}"/>&memberid=<c:out value="${userMeetup.getMemberId().toString()}"/>&meetuptime=<c:out value="${userMeetup.getMeetUpTime().toString()}"/>">Update Time</a></td>
-                    <td><a href="usermeetupdelete?meetupid=<c:out value="${userMeetup.getMeetUpId().toString()}"/>&memberid=<c:out value="${userMeetup.getMemberId().toString()}"/>&meetuptime=<c:out value="${userMeetup.getMeetUpTime().toString()}"/>">Delete</a></td>
+                    <td><a href="usermeetupjoin?meetupid=<c:out value="${userMeetup.getMeetUpId().toString()}"/>&memberid=<c:out value="${userMeetup.getMemberId().toString()}"/>&meetuptime=<c:out value="${userMeetup.getMeetUpTime().toString()}"/>">Join</a></td>
+                     <td><a href="usermeetupdelete?meetupid=<c:out value="${userMeetup.getMeetUpId().toString()}"/>&memberid=<c:out value="${userMeetup.getMemberId().toString()}"/>&meetuptime=<c:out value="${userMeetup.getMeetUpTime().toString()}"/>">Delete</a></td>
                  </tr>
             </c:forEach>
        </table>
