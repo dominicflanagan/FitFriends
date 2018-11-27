@@ -23,6 +23,7 @@
 			<a href="toprunnershome"><img src="TopRunners.jpg" alt="Top Runners" width="250" height="170"></a>
 			<a href="topliftershome"><img src="TopLifters.jpg" alt="Top Lifters" width="250" height="170"></a>
 			<a href="UserMeetUp.jsp"><img src="UserMeetUps.jpg" alt="User Meet Ups" width="250" height="170"></a>
+			<a href="UserWorkout.jsp"><img src="UserWorkouts.jpg" alt="User Workouts" width="250" height="170"></a>
 		</p>
 		<br><div id="userCreate"><a href="usercreate"><h1>Register As a New User</a></h1></div><br/>
 		<br><h1>Find A User</h1><br/>
